@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified">
+<xs:complexType name="gsk">
+	<xs:sequence>
+		<xs:element name="modulescatalogue" type="modulescatalouge"/>
+		<xs:element name="threatscatalogue" type="threatscatalogue"/>
+		<xs:element name="measurescatalogue" type="measurescatalogue"/>
+	</xs:sequence>
+</xs:complexType>
+<xs:complexType name="modulescatalouge">
+	<xs:sequence>
+		<xs:element name="modules" type="modules" minOccurs="1" maxOccurs="5"/>
+	</xs:sequence>	
+</xs:complexType>
+<xs:complexType name="modules">
+	<xs:sequence>
+		<xs:element name="module" type="module" minOccurs="1" maxOccurs="unbound"/>
+	</xs:sequence>
+	<xs:attribute name="title" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="module">
+	<xs:sequence>
+		<xs:element name="moduledescription" type="description"/>
+		<xs:element name="threatdescription" type="description"/>
+		<xs:element name="measuredescription" type="description"/>
+		<xs:element name="modulelinks" type="modulelinks" minOccurs="0" />
+		<xs:element name="threatlinks" type="threatlinks"/>
+		<xs:element name="threatlinksadd" type="threatlinks" minOccurs="0" />
+		<xs:element name="measurelinks" type="measurelinks"/>
+		<xs:element name="measurelinksadd" type="measurelinks" minOccurs="0" />
+	</xs:sequence>
+	<xs:attribute name="version" type="xs:string"/>
+	<xs:attribute name="title" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="description" mixed="true">
+	<xs:sequence>
+		<xs:element name="paragraph" type="xs:string" minOccurs="0" maxOccurs="unbound" />
+		<xs:element name="list" type="list" minOccurs="0" maxOccurs="unbound" />
+	</xs:sequence>
+</xs:complexType>
+<xs:complexType name="threatscatalogue">
+	<xs:sequence>
+		<xs:element name="threats" type="threats" minOccurs="1" maxOccurs="5"/>
+	</xs:sequence>
+</xs:complexType>
+<xs:complexType name="measurescatalogue">
+	<xs:sequence>
+		<xs:element name="measures" type="measures" minOccurs="1" maxOccurs="6"/>
+	</xs:sequence>
+</xs:complexType>
+</xs:schema>
