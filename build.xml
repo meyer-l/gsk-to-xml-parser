@@ -31,11 +31,15 @@
     <!-- Create the distribution directory -->
     <mkdir dir="${dist}/"/>
 
+  <copy todir="${dist}/lib/">
+    <fileset dir="lib/"/>
+  </copy>
+
     <jar jarfile="${dist}/WebParser.jar" basedir="${build}">
       <manifest>
                 <attribute name="Main-Class" value="de.ipm.gsk.WebParser"/>
                 <attribute name="Class-Path"
-                           value="dist/gskWebparser.jar:lib/jsoup-1.6.3.jar"/>
+                           value="dist/gskWebparser.jar lib/jsoup-1.6.3.jar"/>
             </manifest>
     </jar>
 

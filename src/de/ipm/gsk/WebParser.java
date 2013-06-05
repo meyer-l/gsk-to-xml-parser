@@ -30,7 +30,7 @@ public class WebParser {
 			xmlDoc.createElement("<?xml version='1.0' encoding='UTF-8'?>");
 			Element root = xmlDoc.appendElement("gsk");
 			root.attr("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
-			root.attr("xsi:noNamespaceSchemaLocation","gsk.xsd");
+			root.attr("xsi:noNamespaceSchemaLocation","https://github.com/meyer-l/gsk-to-xml-parser/blob/master/gsk.xsd");
 			xmlDoc.appendChild(root);
 			Element modules = root.appendElement("modulesCatalogue");
 			Elements modulesPages = doc.select("a[href*=" + MODULE_ID + "]");
